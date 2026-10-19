@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoMania | Constructor de Reglas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/rule-builder/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="../dashboard/index.html" class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span>AutoMania</span>
+    </a>
+    <div class="topbar-right">
+      <span class="breadcrumb">Nueva automatización</span>
+      <div class="avatar">LG</div>
+    </div>
+  </header>
+
+  <main class="builder-wrapper">
+    <header class="builder-header">
+      <h1>Constructor Visual de Reglas</h1>
+      <p>Arma tu automatización con el esquema <strong>CUANDO → SI → ENTONCES</strong></p>
+    </header>
+
+    <!-- Nombre de la regla -->
+    <div class="rule-name-box">
+      <label for="ruleName">Nombre de la regla</label>
+      <input type="text" id="ruleName" placeholder="Ej: Alerta de bajo stock" maxlength="50">
+    </div>
+
+    <!-- Bloques CUANDO - SI - ENTONCES -->
+    <div class="blocks-grid">
+      <!-- CUANDO -->
+      <article class="block block-cuando" data-block="cuando">
+        <div class="block-header">
+          <div class="block-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <span class="block-number">1. CUANDO</span>
+            <h3>Evento disparador</h3>
+          </div>
+        </div>
+        <p class="block-desc">¿Qué ocurre en el sistema?</p>
+        <select class="block-select" id="eventoSelect">
+          <option value="">Selecciona un evento</option>
+          <option value="producto_actualizado">Producto actualizado</option>
+          <option value="nuevo_cliente">Nuevo cliente registrado</option>
+          <option value="tarea_completada">Tarea completada</option>
+          <option value="stock_bajo">Stock bajo detectado</option>
+          <option value="fecha_vencimiento">Fecha de vencimiento próxima</option>
+        </select>
+        <div class="arrow">→</div>
+      </article>
+
+      <!-- SI -->
+      <article class="block block-si" data-block="si">
+        <div class="block-header">
+          <div class="block-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <span class="block-number">2. SI</span>
+            <h3>Condición lógica</h3>
+          </div>
+        </div>
+        <p class="block-desc">¿Bajo qué condición se cumple?</p>
+        <div class="condition-row">
+          <select class="block-select" id="condicionSelect">
+            <option value="cantidad">Cantidad</option>
+            <option value="precio">Precio</option>
+            <option value="stock">Stock</option>
+            <option value="dias">Días restantes</option>
+          </select>
+          <select class="block-select small" id="operadorSelect">
+            <option value="lt">es menor que</option>
+            <option value="gt">es mayor que</option>
+            <option value="eq">es igual a</option>
+            <option value="lte">es menor o igual</option>
+          </select>
+          <input type="number" class="block-input" id="valorInput" placeholder="5" min="0">
+        </div>
+        <div class="arrow">→</div>
+      </article>
+
+      <!-- ENTONCES -->
+      <article class="block block-entonces" data-block="entonces">
+        <div class="block-header">
+          <div class="block-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <span class="block-number">3. ENTONCES</span>
+            <h3>Acción a ejecutar</h3>
+          </div>
+        </div>
+        <p class="block-desc">¿Qué debe hacer el sistema?</p>
+        <select class="block-select" id="accionSelect">
+          <option value="">Selecciona una acción</option>
+          <option value="notificar">Enviar notificación</option>
+          <option value="correo">Enviar correo electrónico</option>
+          <option value="crear_tarea">Crear tarea automática</option>
+          <option value="actualizar_stock">Actualizar stock</option>
+          <option value="webhook">Llamar webhook</option>
+        </select>
+      </article>
+    </div>
+
+    <!-- Vista previa -->
+    <section class="preview-box">
+      <header>
+        <h3>Vista previa de la regla</h3>
+        <span class="tag">Estructura trinitaria</span>
+      </header>
+      <div class="preview-content" id="previewContent">
+        <span class="chip chip-cuando">CUANDO: <em>—</em></span>
+        <span class="chip chip-si">SI: <em>—</em></span>
+        <span class="chip chip-entonces">ENTONCES: <em>—</em></span>
+      </div>
+    </section>
+
+    <!-- Acciones -->
+    <div class="actions">
+      <button class="btn-secondary" id="cancelBtn">Cancelar</button>
+      <button class="btn-primary" id="saveBtn">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 21v-8H7v8M7 3v5h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Guardar Regla
+      </button>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

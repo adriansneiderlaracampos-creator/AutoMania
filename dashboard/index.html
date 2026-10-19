@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoMania | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dashboard/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon-sm">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>AutoMania</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Automatizaciones</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Productos</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Clientes</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Tareas</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 8V4H8M4 8h16v12H4zM2 4h4v4H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Historial</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-mini">
+          <div class="avatar-sm">LG</div>
+          <div>
+            <p class="user-name-sm">Luis García</p>
+            <p class="user-role-sm">Usuario</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main-area">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <h1 class="page-title">Dashboard</h1>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="notifBtn" aria-label="Notificaciones">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="badge">3</span>
+          </button>
+          <div class="avatar">LG</div>
+        </div>
+      </header>
+
+      <section class="content">
+        <!-- Bienvenida -->
+        <div class="welcome-card">
+          <div>
+            <h2>¡Hola, Luis! 👋</h2>
+            <p>Aquí tienes el resumen de tus automatizaciones hoy.</p>
+          </div>
+          <button class="btn-new" id="newRuleBtn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Nueva automatización
+          </button>
+        </div>
+
+        <!-- Métricas -->
+        <div class="metrics-grid">
+          <article class="metric-card metric-teal">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <p class="metric-label">Reglas activas</p>
+              <p class="metric-value" data-target="12">0</p>
+            </div>
+          </article>
+
+          <article class="metric-card metric-green">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <p class="metric-label">Ejecuciones exitosas hoy</p>
+              <p class="metric-value" data-target="48">0</p>
+            </div>
+          </article>
+
+          <article class="metric-card metric-red">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <p class="metric-label">Errores / Fallos</p>
+              <p class="metric-value" data-target="3">0</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Grid inferior -->
+        <div class="bottom-grid">
+          <section class="panel">
+            <header class="panel-header">
+              <h3>Actividad reciente</h3>
+              <a href="#" class="link">Ver todo</a>
+            </header>
+            <ul class="activity-list" id="activityList">
+              <li>
+                <span class="dot dot-green"></span>
+                <div>
+                  <p><strong>AlertaStock</strong> ejecutada con éxito</p>
+                  <small>Hace 5 minutos · Notificación enviada</small>
+                </div>
+              </li>
+              <li>
+                <span class="dot dot-green"></span>
+                <div>
+                  <p><strong>RecordatorioClientes</strong> ejecutada</p>
+                  <small>Hace 1 hora · 3 clientes notificados</small>
+                </div>
+              </li>
+              <li>
+                <span class="dot dot-red"></span>
+                <div>
+                  <p><strong>TareaVencida</strong> falló</p>
+                  <small>Hace 2 horas · Sin conexión al servicio</small>
+                </div>
+              </li>
+              <li>
+                <span class="dot dot-amber"></span>
+                <div>
+                  <p><strong>SyncInventario</strong> pausada</p>
+                  <small>Hace 3 horas · Desactivada por el usuario</small>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="panel">
+            <header class="panel-header">
+              <h3>Automatizaciones populares</h3>
+              <a href="#" class="link">Gestionar</a>
+            </header>
+            <ul class="rule-list">
+              <li>
+                <div class="rule-info">
+                  <span class="rule-name">Alerta bajo stock</span>
+                  <small>CUANDO stock &lt; 5 → ENTONCES notificar</small>
+                </div>
+                <span class="status status-on">Activa</span>
+              </li>
+              <li>
+                <div class="rule-info">
+                  <span class="rule-name">Recordar tareas</span>
+                  <small>CUANDO fecha = hoy → ENTONCES recordar</small>
+                </div>
+                <span class="status status-on">Activa</span>
+              </li>
+              <li>
+                <div class="rule-info">
+                  <span class="rule-name">Bienvenida cliente</span>
+                  <small>CUANDO nuevo cliente → ENTONCES correo</small>
+                </div>
+                <span class="status status-off">Inactiva</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

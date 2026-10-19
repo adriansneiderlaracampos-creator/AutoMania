@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoMania | Asistente IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/asistente-ia/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="../dashboard/index.html" class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span>AutoMania</span>
+    </a>
+    <div class="topbar-right">
+      <span class="breadcrumb">Asistente IA</span>
+      <div class="avatar">LG</div>
+    </div>
+  </header>
+
+  <main class="ia-wrapper">
+    <header class="ia-header">
+      <h1>Asistente de Inteligencia Artificial</h1>
+      <p>Describe en lenguaje natural qué quieres automatizar y la IA te propondrá la regla estructurada.</p>
+    </header>
+
+    <div class="ia-grid">
+      <!-- Panel de conversación -->
+      <section class="chat-panel">
+        <div class="chat-header">
+          <div class="ai-avatar">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" stroke="currentColor" stroke-width="2"/><path d="M9 13v2a3 3 0 0 0 6 0v-2" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <h3>AutoBot IA</h3>
+            <span class="status-online"><i></i> En línea</span>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-ai">
+            <p>¡Hola! 👋 Soy tu asistente de AutoMania. Cuéntame en lenguaje natural qué deseas automatizar.</p>
+            <small>Ej: "Avísame cuando el stock de leche baje de 5 unidades"</small>
+          </div>
+        </div>
+
+        <div class="chat-input">
+          <textarea id="userInput" rows="2" placeholder="Escribe tu solicitud..."></textarea>
+          <button id="sendBtn" aria-label="Enviar">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="chat-suggestions">
+          <button class="suggestion">Notificarme si las leches se agotan</button>
+          <button class="suggestion">Recordar tareas vencidas</button>
+          <button class="suggestion">Avisar cuando stock baje de 10</button>
+        </div>
+      </section>
+
+      <!-- Panel de propuesta -->
+      <section class="proposal-panel" id="proposalPanel">
+        <header class="proposal-header">
+          <h3>Vista previa de la regla propuesta</h3>
+          <span class="badge-ai">Generada por IA</span>
+        </header>
+
+        <div class="proposal-empty" id="proposalEmpty">
+          <div class="empty-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p>La regla propuesta aparecerá aquí cuando la IA interprete tu solicitud.</p>
+        </div>
+
+        <div class="proposal-content hidden" id="proposalContent">
+          <div class="proposal-block">
+            <span class="chip chip-cuando">CUANDO</span>
+            <div class="proposal-field">
+              <span id="propEvento">Producto actualizado</span>
+            </div>
+          </div>
+
+          <div class="proposal-block">
+            <span class="chip chip-si">2. SI</span>
+            <div class="proposal-field-row">
+              <span id="propCondicion">Cantidad</span>
+              <span class="op" id="propOperador">es menor que</span>
+              <span class="val" id="propValor">5</span>
+            </div>
+          </div>
+
+          <div class="proposal-block">
+            <span class="chip chip-entonces">ENTONCES</span>
+            <div class="proposal-field">
+              <span id="propAccion">Enviar notificación</span>
+            </div>
+          </div>
+
+          <p class="ai-note">💡 Esta regla fue generada por IA. Debes revisarla y confirmarla antes de activarla (RN03).</p>
+
+          <div class="proposal-actions">
+            <button class="btn-secondary" id="rejectBtn">Rechazar</button>
+            <button class="btn-primary" id="confirmBtn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Aprobar y Guardar
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
